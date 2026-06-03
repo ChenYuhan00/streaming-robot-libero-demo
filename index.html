@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>pi05 Streaming LIBERO Demo</title>
+  <title>Streaming Robot LIBERO Demo</title>
   <style>
     :root {
       color-scheme: light;
@@ -13,191 +13,92 @@
     }
     body { margin: 0; padding: 32px; }
     header { max-width: 1180px; margin: 0 auto 28px; }
-    h1 { margin: 0 0 10px; font-size: clamp(28px, 4vw, 46px); letter-spacing: -0.04em; }
-    .subtitle { margin: 0; color: #516070; line-height: 1.55; max-width: 940px; }
-    .stats { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
-    .pill { border: 1px solid #d6deea; border-radius: 999px; background: white; padding: 7px 12px; color: #334155; font-size: 14px; }
+    h1 { margin: 0 0 10px; font-size: clamp(30px, 4vw, 48px); letter-spacing: -0.04em; }
+    .subtitle { margin: 0; color: #516070; line-height: 1.55; max-width: 840px; font-size: 17px; }
     .grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 22px; }
     .card { overflow: hidden; border: 1px solid #dce3ee; border-radius: 18px; background: white; box-shadow: 0 10px 30px rgba(23, 32, 51, 0.08); }
     video { display: block; width: 100%; aspect-ratio: 1 / 1; background: #111827; object-fit: contain; }
-    .meta { padding: 16px 18px 18px; }
-    .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
-    .badge { border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
-    .badge.success { background: #dcfce7; color: #166534; }
-    .id { color: #6b7280; font-size: 13px; white-space: nowrap; }
-    .label { color: #2563eb; font-size: 13px; font-weight: 700; margin-bottom: 7px; }
-    h2 { margin: 0 0 12px; font-size: 17px; line-height: 1.35; font-weight: 650; }
-    details { color: #6b7280; font-size: 12px; }
-    summary { cursor: pointer; user-select: none; }
-    code { display: block; margin-top: 8px; padding: 10px; overflow-wrap: anywhere; border-radius: 10px; background: #f3f4f6; color: #374151; }
+    h2 { margin: 0; padding: 16px 18px 18px; font-size: 17px; line-height: 1.35; font-weight: 650; }
   </style>
 </head>
 <body>
   <header>
-    <h1>pi05 Streaming LIBERO Demo</h1>
+    <h1>Streaming Robot LIBERO Demo</h1>
     <p class="subtitle">
-      Diverse successful rollouts from EXP-013 ckpt5000, the current strongest pi05 streaming result.
-      Evaluation setting: LIBERO 40-task x50, streaming m5 d10, total success 1950/2000 = 97.5%.
-      The gallery samples different task families: goal, object, spatial, and long-horizon LIBERO-10.
+      A collection of robot manipulation rollouts showing streaming policy execution across diverse LIBERO tasks.
     </p>
-    <div class="stats">
-      <span class="pill">EXP-013 ckpt5000</span>
-      <span class="pill">pi05_libero_progressive_noise_phase_jitter</span>
-      <span class="pill">streaming m5 d10</span>
-      <span class="pill">10 diverse success clips</span>
-    </div>
   </header>
   <main class="grid">
 
       <article class="card">
         <video controls muted loop preload="metadata" playsinline>
-          <source src="videos/exp013_diverse_01_libero_goal_success.mp4" type="video/mp4">
+          <source src="videos/demo_01.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-        <div class="meta">
-          <div class="row"><span class="badge success">success</span><span class="id">libero_goal · 7.9s</span></div>
-          <div class="label">Goal: turn on stove</div>
-          <h2>turn on the stove</h2>
-          <details>
-            <summary>source path</summary>
-            <code>/home/yuhan/Projects/PA-VAM/output/openpi/EXP-013/eval/ckpt5000_40task_n1_streaming_m5_d10_gpu6/libero_goal/videos/rollout_turn_on_the_stove_success.mp4</code>
-          </details>
-        </div>
+        <h2>Turn on the stove</h2>
       </article>
       <article class="card">
         <video controls muted loop preload="metadata" playsinline>
-          <source src="videos/exp013_diverse_02_libero_goal_success.mp4" type="video/mp4">
+          <source src="videos/demo_02.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-        <div class="meta">
-          <div class="row"><span class="badge success">success</span><span class="id">libero_goal · 25.3s</span></div>
-          <div class="label">Goal: open drawer</div>
-          <h2>open the middle drawer of the cabinet</h2>
-          <details>
-            <summary>source path</summary>
-            <code>/home/yuhan/Projects/PA-VAM/output/openpi/EXP-013/eval/ckpt5000_40task_n1_streaming_m5_d10_gpu6/libero_goal/videos/rollout_open_the_middle_drawer_of_the_cabinet_success.mp4</code>
-          </details>
-        </div>
+        <h2>Place a wine bottle on the rack</h2>
       </article>
       <article class="card">
         <video controls muted loop preload="metadata" playsinline>
-          <source src="videos/exp013_diverse_03_libero_goal_success.mp4" type="video/mp4">
+          <source src="videos/demo_03.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-        <div class="meta">
-          <div class="row"><span class="badge success">success</span><span class="id">libero_goal · 13.5s</span></div>
-          <div class="label">Goal: push plate</div>
-          <h2>push the plate to the front of the stove</h2>
-          <details>
-            <summary>source path</summary>
-            <code>/home/yuhan/Projects/PA-VAM/output/openpi/EXP-013/eval/ckpt5000_40task_n1_streaming_m5_d10_gpu6/libero_goal/videos/rollout_push_the_plate_to_the_front_of_the_stove_success.mp4</code>
-          </details>
-        </div>
+        <h2>Push the plate to the front of the stove</h2>
       </article>
       <article class="card">
         <video controls muted loop preload="metadata" playsinline>
-          <source src="videos/exp013_diverse_04_libero_object_success.mp4" type="video/mp4">
+          <source src="videos/demo_04.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-        <div class="meta">
-          <div class="row"><span class="badge success">success</span><span class="id">libero_object · 11.9s</span></div>
-          <div class="label">Object: tomato sauce</div>
-          <h2>pick up the tomato sauce and place it in the basket</h2>
-          <details>
-            <summary>source path</summary>
-            <code>/home/yuhan/Projects/PA-VAM/output/openpi/EXP-013/eval/ckpt5000_40task_n1_streaming_m5_d10_gpu6/libero_object/videos/rollout_pick_up_the_tomato_sauce_and_place_it_in_the_basket_success.mp4</code>
-          </details>
-        </div>
+        <h2>Put tomato sauce in the basket</h2>
       </article>
       <article class="card">
         <video controls muted loop preload="metadata" playsinline>
-          <source src="videos/exp013_diverse_05_libero_object_success.mp4" type="video/mp4">
+          <source src="videos/demo_05.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-        <div class="meta">
-          <div class="row"><span class="badge success">success</span><span class="id">libero_object · 12.3s</span></div>
-          <div class="label">Object: orange juice</div>
-          <h2>pick up the orange juice and place it in the basket</h2>
-          <details>
-            <summary>source path</summary>
-            <code>/home/yuhan/Projects/PA-VAM/output/openpi/EXP-013/eval/ckpt5000_40task_n1_streaming_m5_d10_gpu6/libero_object/videos/rollout_pick_up_the_orange_juice_and_place_it_in_the_basket_success.mp4</code>
-          </details>
-        </div>
+        <h2>Put orange juice in the basket</h2>
       </article>
       <article class="card">
         <video controls muted loop preload="metadata" playsinline>
-          <source src="videos/exp013_diverse_06_libero_object_success.mp4" type="video/mp4">
+          <source src="videos/demo_06.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-        <div class="meta">
-          <div class="row"><span class="badge success">success</span><span class="id">libero_object · 14.3s</span></div>
-          <div class="label">Object: chocolate pudding</div>
-          <h2>pick up the chocolate pudding and place it in the basket</h2>
-          <details>
-            <summary>source path</summary>
-            <code>/home/yuhan/Projects/PA-VAM/output/openpi/EXP-013/eval/ckpt5000_40task_n1_streaming_m5_d10_gpu6/libero_object/videos/rollout_pick_up_the_chocolate_pudding_and_place_it_in_the_basket_success.mp4</code>
-          </details>
-        </div>
+        <h2>Put chocolate pudding in the basket</h2>
       </article>
       <article class="card">
         <video controls muted loop preload="metadata" playsinline>
-          <source src="videos/exp013_diverse_07_libero_spatial_success.mp4" type="video/mp4">
+          <source src="videos/demo_07.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-        <div class="meta">
-          <div class="row"><span class="badge success">success</span><span class="id">libero_spatial · 8.8s</span></div>
-          <div class="label">Spatial: bowl on ramekin</div>
-          <h2>pick up the black bowl on the ramekin and place it on the plate</h2>
-          <details>
-            <summary>source path</summary>
-            <code>/home/yuhan/Projects/PA-VAM/output/openpi/EXP-013/eval/ckpt5000_40task_n1_streaming_m5_d10_gpu6/libero_spatial/videos/rollout_pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate_success.mp4</code>
-          </details>
-        </div>
+        <h2>Move the black bowl from the ramekin to the plate</h2>
       </article>
       <article class="card">
         <video controls muted loop preload="metadata" playsinline>
-          <source src="videos/exp013_diverse_08_libero_spatial_success.mp4" type="video/mp4">
+          <source src="videos/demo_08.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-        <div class="meta">
-          <div class="row"><span class="badge success">success</span><span class="id">libero_spatial · 12.0s</span></div>
-          <div class="label">Spatial: bowl in top drawer</div>
-          <h2>pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate</h2>
-          <details>
-            <summary>source path</summary>
-            <code>/home/yuhan/Projects/PA-VAM/output/openpi/EXP-013/eval/ckpt5000_40task_n1_streaming_m5_d10_gpu6/libero_spatial/videos/rollout_pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate_success.mp4</code>
-          </details>
-        </div>
+        <h2>Move the black bowl from the drawer to the plate</h2>
       </article>
       <article class="card">
         <video controls muted loop preload="metadata" playsinline>
-          <source src="videos/exp013_diverse_09_libero_10_success.mp4" type="video/mp4">
+          <source src="videos/demo_09.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-        <div class="meta">
-          <div class="row"><span class="badge success">success</span><span class="id">libero_10 · 16.6s</span></div>
-          <div class="label">Long-horizon: book to caddy</div>
-          <h2>pick up the book and place it in the back compartment of the caddy</h2>
-          <details>
-            <summary>source path</summary>
-            <code>/home/yuhan/Projects/PA-VAM/output/openpi/EXP-013/eval/ckpt5000_40task_n1_streaming_m5_d10_gpu6/libero_10/videos/rollout_pick_up_the_book_and_place_it_in_the_back_compartment_of_the_caddy_success.mp4</code>
-          </details>
-        </div>
+        <h2>Place the book in the caddy</h2>
       </article>
       <article class="card">
         <video controls muted loop preload="metadata" playsinline>
-          <source src="videos/exp013_diverse_10_libero_10_success.mp4" type="video/mp4">
+          <source src="videos/demo_10.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-        <div class="meta">
-          <div class="row"><span class="badge success">success</span><span class="id">libero_10 · 24.8s</span></div>
-          <div class="label">Long-horizon: microwave mug</div>
-          <h2>put the yellow and white mug in the microwave and close it</h2>
-          <details>
-            <summary>source path</summary>
-            <code>/home/yuhan/Projects/PA-VAM/output/openpi/EXP-013/eval/ckpt5000_40task_n1_streaming_m5_d10_gpu6/libero_10/videos/rollout_put_the_yellow_and_white_mug_in_the_microwave_and_close_it_success.mp4</code>
-          </details>
-        </div>
+        <h2>Put the mug in the microwave and close it</h2>
       </article>
   </main>
 </body>
